@@ -1,0 +1,74 @@
+# File: HW1B.py
+# Author: Andrew Riley
+# UT EID: amr8799
+# Course: CS 303E
+#
+# This program outputs uses user input to solve problems such as calculating the radius of a pentagon,
+# generating payroll statements, and even playing rock, paper, scissors against a computer.
+
+
+import math
+radius = eval(input("Enter the radius of the pentagon: "))
+side = 2 * radius * math.sin(math.pi/5)
+area_1 = 5 / (4 * math.sqrt(5-2 * math.sqrt(5))) * (side ** 2)
+print(f"The area of the pentagon is {area_1:.2f} units squared.")
+print()
+employee_name = input("Enter employee's name: ")
+hours = eval(input("Enter numbers of hours worked this week: "))
+hr_rate = eval(input("Enter hourly pay rate: "))
+fed_tax_rate = eval(input("Enter federal tax withholding rate (%): "))
+state_tax_rate = eval(input("Enter state tax withholding rate (%): "))
+
+pr_num = f"${hr_rate:.2f}"
+pr_sentence = f"Pay Rate:{pr_num:>13s}"
+
+g_pay = hr_rate * hours
+g_pay1 = f"${g_pay:.2f}"
+g_pay_sentence = f"Gross Pay:{g_pay1:>12s}"
+
+fed_withholding = g_pay * (fed_tax_rate / 100)
+fed_withholding1 = f"${fed_withholding:.2f}"
+fed_withholding_sentence = f"  Federal Withholding ({fed_tax_rate}%):{fed_withholding1:>8s}"
+
+state_withholding = g_pay * (state_tax_rate / 100)
+state_withholding1 = f"${state_withholding:.2f}"
+state_withholding_sentence = f"  State Withholding ({state_tax_rate}%):{state_withholding1:>9s}"
+
+net_pay = g_pay - fed_withholding - state_withholding
+
+print(f"Weekly Pay Statement for {employee_name}")
+print(f"Hours Worked: {hours:8.1f}")
+print(pr_sentence)
+print(g_pay_sentence)
+print("Deductions:")
+print(fed_withholding_sentence)
+print(state_withholding_sentence)
+print(f"Net Pay: ${net_pay}")
+print()
+import random
+computer_input = random.randint(0,2)
+user_choice = input("Choose rock, paper, or scissors: ")
+if computer_input == 0:
+    computer_choice = "rock"
+elif computer_input == 1:
+    computer_choice = "paper"
+elif computer_input == 2:
+    computer_choice = "scissors"
+
+print(f"Computer is {computer_choice}. You are {user_choice}.")
+
+if computer_choice == user_choice:
+    print("Draw.")
+elif computer_choice == "paper" and user_choice == "rock":
+    print("Computer wins")
+elif computer_choice == "rock" and user_choice == "scissors":
+    print("Computer wins")
+elif computer_choice == "scissors" and user_choice == "paper":
+    print("Computer wins.")
+elif user_choice == "paper" and computer_choice == "rock":
+    print("You win")
+elif user_choice == "rock" and computer_choice == "scissors":
+    print("You win")
+elif user_choice == "scissors" and computer_choice == "paper":
+    print("You win.")
+
