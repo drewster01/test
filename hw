@@ -6,13 +6,16 @@
 # This program outputs uses user input to solve problems such as calculating the radius of a pentagon,
 # generating payroll statements, and even playing rock, paper, scissors against a computer.
 
+print()
 
 import math
 radius = eval(input("Enter the radius of the pentagon: "))
 side = 2 * radius * math.sin(math.pi/5)
 area_1 = 5 / (4 * math.sqrt(5-2 * math.sqrt(5))) * (side ** 2)
 print(f"The area of the pentagon is {area_1:.2f} units squared.")
+
 print()
+
 employee_name = input("Enter employee's name: ")
 hours = eval(input("Enter numbers of hours worked this week: "))
 hr_rate = eval(input("Enter hourly pay rate: "))
@@ -44,7 +47,9 @@ print("Deductions:")
 print(fed_withholding_sentence)
 print(state_withholding_sentence)
 print(f"Net Pay: ${net_pay}")
+
 print()
+
 import random
 computer_input = random.randint(0,2)
 user_choice = input("Choose rock, paper, or scissors: ")
